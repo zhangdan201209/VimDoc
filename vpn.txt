@@ -1,0 +1,29 @@
+ince getitng the vpn to work is always a great exercise of google-fu for me, I've decided to finally put this in my space. Im not sure if this is only a ubuntu bug but the client.ovpn file cannot be directly imported on my computer so heres how I do it:
+https://vpn.acquisio.com/ - 
+Login with your Active Directory credentials
+Once logged in, download your connection profile (was the last link at the bottom of the page) instead of the openvpn connect app
+Run in the terminal : 
+sudo apt-get install network-manager-openvpn openvpn
+With the connection profile you downloaded follow these instructions (from http://askubuntu.com/questions/450493/openvpn-cant-import-configurations-on-new-14-04-installation). The next steps are to extract the configuration components out of the .ovpn file so with the client.ovpn file opened in a text editor
+Create a file called ca.crt - copy the text between <ca> and </ca> from client.ovpn into this file
+Create a file called client.crt - copy the text between <cert> and </cert> from client.ovpn into this file
+Create a file called client.key - copy the text between <key> and </key> from client.ovpn into this file
+Create a file called ta.key - copy the text between <tls-auth> and </tls-auth> from client.ovpn 
+Remove all the nodes that were extracted from the file
+In client.ovpn, Just before the ## --BEGIN RSA SIGNATURE-- line add the below lines and save
+ca ca.crt
+cert client.crt
+key client.key
+tls-auth ta.key
+In the network-manager
+
+In VPN Connections => Configure VPN... Click the Add Button
+Select "Import a saved VPN Connection" and select the client.ovpn file on your drive.
+In the next screen, type in your username and your password (you can also not type your password by selecting the Always Ask option, which is a bit more secure but who cares? (smile) )
+On the VPN tab => Advanced => TLS Authentication => Key Direction must be changed to 1.
+On the IPv4 Settings => Routes... => Check the "Use this connection only for resources on its network"
+Save and now in the vpn connections you should be able to select the new connection.
+
+Then try accessing a office website (JIRA, confluence) and then another website which is not on the network. 
+It is also a good idea to make the configuration files that we created only user readable (and not group readable).
+ 
