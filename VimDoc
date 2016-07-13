@@ -1,0 +1,46 @@
+Insert Mode
+-A append at the end of the line
+-a append at the cursor
+-I insert at the begin
+-i insert at the cursor
+-o insert new line below
+-O insert new line above
+-s delete the current char and insert
+-S rewrite the whole line
+-r replace single char and exit insert mode
+		
+Visual Mode
+-v Char based Visual Mode
+-V Line based Visual Mode
+
+Move
+-hjkl
+-(number)(hjkl)
+
+-^ Begining of the line
+-$ End of the line
+-Ctrl+b page back
+-Ctrl+f page forward
+-(LineNum)G
+
+-H first line in the window
+-M midium line in the window
+-L lowest line in the window
+
+-w move to the first char of next word
+-e move the the end char of next word
+-b move back one word
+-help word-motions
+-) move to the next sentence
+-( move to the previous sentence
+-help cursor-motions
+
+			
+
+
+
+
+
+
+tljllkjjis the the line for testing
+ahis is antoher line for test 
