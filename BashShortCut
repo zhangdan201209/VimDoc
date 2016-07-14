@@ -1,0 +1,26 @@
+Move:
+1.cr+b char back
+2.cr+d char forward
+3.alt+b word back
+4.alt+f word forward
+5.cr+a ^
+6.cr+e $
+
+Delte:
+alt+d delete word forward
+cr+w delte word backword
+cr+h delte char forward
+cr+d delte char backward
+cr+U delte left line 
+cr+k delte right line
+
+Copye/Paste
+Copy cr+shift+c
+Paste cr+shift+v
+
+Command
+cr+n next command
+cr+p last command
+Other
+alt+. last argument
+
