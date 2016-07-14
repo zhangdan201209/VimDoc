@@ -23,4 +23,4 @@ cr+n next command
 cr+p last command
 Other
 alt+. last argument
-
+cr+/ revert
